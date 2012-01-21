@@ -34,9 +34,17 @@ pbpp() {
   open "${1}.pdf"
 }
 
-lbll() {
-  latex $1
-  bibtex $1
-  latex $1
-  latex $1
+# Copy with progress indicator
+cpi() {
+  if [ -z $2 ]; then
+    echo "Usage:  cpi [origin] [destination]"
+    return
+  fi
+  rsync --progress $1 $2
 }
+
+# Mount my desktop computer
+alias mount_home='mount_smbfs //Greggory@greggory-pc/Users/Greggory/ ~/share'
+
+# Open a file with VLC
+vlc() { /Applications/VLC.app/Contents/MacOS/VLC $1; }
