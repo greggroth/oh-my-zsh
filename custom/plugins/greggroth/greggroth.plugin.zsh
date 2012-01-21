@@ -47,4 +47,4 @@ cpi() {
 alias mount_home='mount_smbfs //Greggory@greggory-pc/Users/Greggory/ ~/share'
 
 # Open a file with VLC
-vlc() { /Applications/VLC.app/Contents/MacOS/VLC $1; }
+vlc() { open $1 -a vlc; }
