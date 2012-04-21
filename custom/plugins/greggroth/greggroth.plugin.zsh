@@ -11,6 +11,10 @@ compdef _p p
 # Shortcut for opening finder
 alias f='open .'
 
+# Shortcut for VIM
+alias v='vim'
+alias vi='vim'
+
 # Some extra things for git
 alias ggraph='git log --date-order --graph --date=short --pretty="%h (%ad): %s"'
 compdef _git ggraph=git-log
@@ -23,16 +27,33 @@ pbpp() {
     echo "No arugment given"
     return
   fi
-  if [ ! -e "${1}.tex" ]; then
+  FILE=`basename $1 .tex`
+  if [ ! -e "${FILE}.tex" ]; then
     echo "Tex file not found.  Verify that the current directory contains a file named ${1}.tex"
     return
   fi
-  pdflatex $1
-  bibtex $1
-  pdflatex $1
-  pdflatex $1
-  open "${1}.pdf"
+  pdflatex $FILE
+  bibtex $FILE
+  pdflatex $FILE
+  pdflatex $FILE
+  open "${FILE}.pdf"
 }
+compdef '_files -g "*.tex"' pbpp
+
+pdfl() {
+  if [ -z $1 ]; then
+    echo "No arugment given"
+    return
+  fi
+  FILE=`basename $1 .tex`
+  if [ ! -e "${FILE}.tex" ]; then
+    echo "Tex file not found.  Verify that the current directory contains a file named ${1}.tex"
+    return
+  fi
+  pdflatex $FILE
+  open "${FILE}.pdf"
+}
+compdef '_files -g "*.tex"' pdfl
 
 # Copy with progress indicator
 cpi() {
