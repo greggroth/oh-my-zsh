@@ -14,7 +14,7 @@ alias vi='vim'
 alias ta='tmux attach-session -t'
 alias tlist='tmux list-sessions'
 alias tnew='tmux new-sesion -s'
-alias tkill='tmux kill-sessions -t'
+alias tkill='tmux kill-session -t'
 
 # Some extra things for git
 alias ggraph='git log --date-order --graph --date=short --pretty="%Cred%h%Creset (%Cgreen%cr%Creset): %s (%Cblue%an%Creset)" -10 | column -tx -s \:'
