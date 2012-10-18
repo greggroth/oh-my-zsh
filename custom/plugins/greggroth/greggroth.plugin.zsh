@@ -13,7 +13,7 @@ alias vi='vim'
 # Tmux Aliases
 alias ta='tmux attach-session -t'
 alias tlist='tmux list-sessions'
-alias tnew='tmux new-sesion -s'
+alias tnew='tmux new-session -s'
 alias tkill='tmux kill-session -t'
 
 # Some extra things for git
@@ -29,6 +29,11 @@ cpi() {
     return
   fi
   rsync --progress $1 $2
+}
+
+# What's using a port
+whats_using() {
+  lsof -i:$1;
 }
 
 # Mount my desktop computer
