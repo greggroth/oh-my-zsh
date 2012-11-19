@@ -19,8 +19,6 @@ alias tkill='tmux kill-session -t'
 # Some extra things for git
 alias ggraph='git log --date-order --graph --date=short --pretty="%Cred%h%Creset (%Cgreen%cr%Creset): %s (%Cblue%an%Creset)" -10 | column -tx -s \:'
 compdef _git ggraph=git-log
-gcam() { git commit -a -m $1; }
-compdef _git gcam=git-commit
 
 # Copy with progress indicator
 cpi() {
