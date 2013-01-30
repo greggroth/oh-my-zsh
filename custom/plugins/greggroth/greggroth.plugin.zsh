@@ -34,6 +34,9 @@ whats_using() {
   lsof -i:$1;
 }
 
+# list of ActiveRecord::Base files sorted by line count
+alias ar_file_list='ack ActiveRecord::Base app/models -l | xargs wc -l | sort -r | head'
+
 # Mount my desktop computer
 alias mount_home='mount_smbfs //Greggory@greggory-pc/Users/Greggory/ ~/share'
 
@@ -42,3 +45,7 @@ vlc() { open $1 -a vlc; }
 
 # Syntax-highlighted cat
 ccat() { source-highlight -i $1 -o STDOUT -f esc256; }
+
+# Find in filename
+findfile() { find . -iname \*$1\*; }
+
