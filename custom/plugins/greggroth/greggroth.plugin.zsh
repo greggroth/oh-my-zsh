@@ -49,3 +49,4 @@ ccat() { source-highlight -i $1 -o STDOUT -f esc256; }
 # Find in filename
 findfile() { find . -iname \*$1\*; }
 
+lastcommitted() { git show $(git log --pretty=oneline $1 | grep -Eom 1 '\w{32}') }
